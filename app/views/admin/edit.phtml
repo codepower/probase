@@ -1,0 +1,91 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["ab_admin", "Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>
+        Edit ab_admin
+    </h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<?php
+    echo $this->tag->form(
+        [
+            "ab_admin/save",
+            "autocomplete" => "off",
+            "class" => "form-horizontal"
+        ]
+    );
+?>
+
+<div class="form-group">
+    <label for="fieldUsername" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["username", "size" => 30, "class" => "form-control", "id" => "fieldUsername"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->selectStatic(["password", [], "class" => "form-control", "id" => "fieldPassword"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldEncrypt" class="col-sm-2 control-label">Encrypt</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->selectStatic(["encrypt", [], "class" => "form-control", "id" => "fieldEncrypt"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldRealname" class="col-sm-2 control-label">Realname</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["realname", "size" => 30, "class" => "form-control", "id" => "fieldRealname"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldLastloginip" class="col-sm-2 control-label">Lastloginip</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["lastloginip", "size" => 30, "class" => "form-control", "id" => "fieldLastloginip"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldLastlogintime" class="col-sm-2 control-label">Lastlogintime</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["lastlogintime", "type" => "number", "class" => "form-control", "id" => "fieldLastlogintime"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["email", "size" => 30, "class" => "form-control", "id" => "fieldEmail"]) ?>
+    </div>
+</div>
+
+
+<?php echo $this->tag->hiddenField("id") ?>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
+    </div>
+</div>
+
+<?php echo $this->tag->endForm(); ?>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>我的Phalcon项目</title>
+        <link rel="stylesheet" href="<?php echo $this->url->get('css/common.css')?>"/>
+        <!--<link rel="stylesheet" href="<?php echo $this->url->get('css/form.css')?>"/>-->
+        <link rel="stylesheet" href="<?php echo $this->url->get('css/iconfont.css')?>"/>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('img/favicon.ico')?>"/>
+    </head>
+    <body>
+       	<div id="header">
+            <div id="header-left"><strong>Phalcon项目</strong></div>
+            <div id="header-right"></div>
+        </div>
+        <div id="left-menu">
+            <div class="menu-search">
+                <input type="text" class="input-text input-text-small">
+            </div>
+            <?php $menuList=[['menuName'=>'文章管理'],['menuName'=>'用户管理'],['menuName'=>'广告管理'],['menuName'=>'系统管理']];foreach($menuList as $menu):?>
+            <a class="menu-item menu-item-active">
+                <i class="iconfont">&#x3435;</i>
+                <?php echo $menu['menuName'];?>
+            </a>
+            <?php endforeach;?>
+        </div>
+        <div class="container clearfix">
+            <?php echo $this->getContent();?>
+        </div>
+        <div id="footer">
+            Copyright © 2015-<?php echo date('Y');?>. Morn Code All rights reserved. <?php echo '公司名称';?>科技有限公司
+        </div>
+    </body>
+    

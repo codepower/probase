@@ -1,0 +1,461 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+a {
+    background-color: transparent
+}
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+b,
+strong {
+    font-weight: 700
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+img {
+    border: 0
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0
+}
+
+button,
+input,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+.btn {
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.btn::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #444;
+    color: rgba(0, 0, 0, .8);
+    border: 1px solid #999;
+    border: 0 rgba(0, 0, 0, 0);
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px
+}
+
+.btn-hover,
+.btn:hover,
+.btn:focus {
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, .05)), to(rgba(0, 0, 0, .1)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .1));
+    background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1))
+}
+
+.btn:focus {
+    outline: 0
+}
+
+.btn-active,
+.btn:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 0 6px rgba(0, 0, 0, .2) inset;
+    border-color: #000\9
+}
+
+.btn[disabled],
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:focus,
+.btn-disabled:active {
+    border: 0;
+    background-image: none;
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: .4;
+    -moz-opacity: .4;
+    opacity: .4;
+    cursor: not-allowed;
+    box-shadow: none
+}
+
+.btn::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+.btn,
+.btn-selected,
+a.btn,
+a.btn-selected {
+    background-color: #0078e7;
+    color: #fff
+}
+
+.form input[type=text],
+.form input[type=password],
+.form input[type=email],
+.form input[type=url],
+.form input[type=date],
+.form input[type=month],
+.form input[type=time],
+.form input[type=datetime],
+.form input[type=datetime-local],
+.form input[type=week],
+.form input[type=number],
+.form input[type=search],
+.form input[type=tel],
+.form input[type=color],
+.form select,
+.form textarea {
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.form input:not([type]) {
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.form input[type=color] {
+    padding: .2em .5em
+}
+
+.form input[type=text]:focus,
+.form input[type=password]:focus,
+.form input[type=email]:focus,
+.form input[type=url]:focus,
+.form input[type=date]:focus,
+.form input[type=month]:focus,
+.form input[type=time]:focus,
+.form input[type=datetime]:focus,
+.form input[type=datetime-local]:focus,
+.form input[type=week]:focus,
+.form input[type=number]:focus,
+.form input[type=search]:focus,
+.form input[type=tel]:focus,
+.form input[type=color]:focus,
+.form select:focus,
+.form textarea:focus {
+    outline: 0;
+    border-color: #129FEA
+}
+
+.form input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA
+}
+
+.form input[type=file]:focus,
+.form input[type=radio]:focus,
+.form input[type=checkbox]:focus {
+    outline: thin solid #129FEA;
+    outline: 1px auto #129FEA
+}
+
+.form .checkbox,
+.form .radio {
+    margin: .5em 0;
+    display: block
+}
+
+.form input[type=text][disabled],
+.form input[type=password][disabled],
+.form input[type=email][disabled],
+.form input[type=url][disabled],
+.form input[type=date][disabled],
+.form input[type=month][disabled],
+.form input[type=time][disabled],
+.form input[type=datetime][disabled],
+.form input[type=datetime-local][disabled],
+.form input[type=week][disabled],
+.form input[type=number][disabled],
+.form input[type=search][disabled],
+.form input[type=tel][disabled],
+.form input[type=color][disabled],
+.form select[disabled],
+.form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3
+}
+
+.form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3
+}
+
+.form input[readonly],
+.form select[readonly],
+.form textarea[readonly] {
+    background-color: #eee;
+    color: #777;
+    border-color: #ccc
+}
+
+.form input:focus:invalid,
+.form textarea:focus:invalid,
+.form select:focus:invalid {
+    color: #b94a48;
+    border-color: #e9322d
+}
+
+.form input[type=file]:focus:invalid:focus,
+.form input[type=radio]:focus:invalid:focus,
+.form input[type=checkbox]:focus:invalid:focus {
+    outline-color: #e9322d
+}
+
+.form select {
+    height: 2.25em;
+    border: 1px solid #ccc;
+    background-color: #fff
+}
+
+.form select[multiple] {
+    height: auto
+}
+
+.form label {
+    margin: .5em 0 .2em
+}
+
+.form fieldset {
+    margin: 0;
+    padding: .35em 0 .75em;
+    border: 0
+}
+
+.form legend {
+    display: block;
+    width: 100%;
+    padding: .3em 0;
+    margin-bottom: .3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5
+}
+
+.form-stacked input[type=text],
+.form-stacked input[type=password],
+.form-stacked input[type=email],
+.form-stacked input[type=url],
+.form-stacked input[type=date],
+.form-stacked input[type=month],
+.form-stacked input[type=time],
+.form-stacked input[type=datetime],
+.form-stacked input[type=datetime-local],
+.form-stacked input[type=week],
+.form-stacked input[type=number],
+.form-stacked input[type=search],
+.form-stacked input[type=tel],
+.form-stacked input[type=color],
+.form-stacked input[type=file],
+.form-stacked select,
+.form-stacked label,
+.form-stacked textarea {
+    display: block;
+    margin: .25em 0
+}
+
+.form-stacked input:not([type]) {
+    display: block;
+    margin: .25em 0
+}
+
+.form-aligned input,
+.form-aligned textarea,
+.form-aligned select,
+.form-aligned .help-inline,
+.form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle
+}
+
+.form-aligned textarea {
+    vertical-align: top
+}
+
+.form-aligned .control-group {
+    margin-bottom: .5em
+}
+
+.form-aligned .control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0
+}
+
+.form-aligned .controls {
+    margin: 1.5em 0 0 11em
+}
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb
+}
+
+.table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center
+}
+
+.table td,
+.table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em
+}
+
+.table td:first-child,
+.table th:first-child {
+    border-left-width: 0
+}
+
+.table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom
+}
+
+.table td {
+    background-color: transparent
+}
+
+.table td,
+.table th {
+    border-width: 0 0 1px;
+    border-bottom: 1px solid #cbcbcb
+}
+
+.table tbody>tr:last-child>td {
+    border-bottom-width: 0
+}
