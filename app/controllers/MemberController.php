@@ -20,10 +20,10 @@ class MemberController extends ControllerBase
     public function searchAction()
     {
         $numberPage = 1;
-        if ($this->request->isMethod('get') ) {
+        if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, 'Member', $_POST);
-            var_dump($getData);exit;
             $this->persistent->parameters = $query->getParams();
+        } else {
             $numberPage = $this->request->getQuery("page", "int");
         }
 

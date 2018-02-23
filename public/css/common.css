@@ -323,39 +323,6 @@ a.menu-item i.iconfont {
     border: 1px solid #aaeeff;
 }
 
-.bread a {
-    display: inline-block;
-    color: #fff;
-}
-
-.bread a:hover {
-    display: inline-block;
-    color: #00aaff;
-}
-
-.bread em {
-    display: inline-block;
-    padding: 0 0.5em;
-    font-style: normal;
-}
-
-.bread .button-group {
-    float: right;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    line-height: normal;
-    margin-top: 2px;
-}
-
-.bread .button-group a {
-    display: inline-block;
-    padding: .4em 1em;
-}
-
-.bread .button-group a:first-child {
-    border-right: 1px solid #fff;
-}
-
 #footer {
     background-color: #282e3b;
     color: #fff;
@@ -772,14 +739,7 @@ a.delete {
     color: hotpink;
 }
 
-.square-thumb-small {
-    font-size: 0;
-    text-align: center;
-    width: 80px;
-    overflow: hidden;
-}
-
-.square-thumb-small img {
+img.square-thumb-small {
     width: 64px;
     height: 64px;
     border: 1px solid #eee;
@@ -815,18 +775,17 @@ img.golden-thumb {
     padding: 3px;
 }
 
-.page-bar {
-    padding-top: 10px;
-    text-align: right;
-}
-
 .pagination {
     display: inline-block;
+    /*border-left: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;*/
+    position: relative;
     border-radius: 2px;
     overflow: hidden;
     vertical-align: middle;
-    font-size: 0;
-    -webkit-text-size-adjust: none;
+    margin-top: 10px;
 }
 
 .pagination a,

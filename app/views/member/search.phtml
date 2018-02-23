@@ -1,14 +1,10 @@
-<div class="bread">
-<a href="">会员管理</a>
-<em>&#47;</em>
-<span>会员中心</span>
-<div class="button-group"><a href="/member/new">新建</a><a href="/member/index">返回</a></div>
-</div>
 <div class="page-header">
-        <form method="get">
-            关键字：<input type="text" name="keywords"/>
-            <button type="submit" class="button primary">查询</button>
-        </form>
+    <div class="bread"></div>
+    <div class="take-bar">
+        <a href="/member/new" class="button primary">新建</a>
+        <span> </span>
+        <a href="/member/index" class="button primary">返回</a>
+    </div>
 </div>
     <table class="bordered no-padding">
         <thead>
@@ -29,13 +25,13 @@
         <?php foreach($page->items as $member):?>
             <tr>
                 <td class="align-right"><?=$member->memberId;?></td>
-                <td class="align-center"><?=$member->mobile;?></td>
+                <td style="text-align:center;"><?=$member->mobile;?></td>
                 <td class="align-left"><?=$member->email ;?></td>
-                <td class="square-thumb-small">
-                    <img src="/upload/avatar.jpg" />
+                <td style="text-align:center;width:80px;">
+                    <!--<img class="square-thumb-small"  src="<?php echo "http://lc.zyw68.com/upload/avatar/icon".$member->memberId.".jpg";?>" />-->
                 </td>
                 <td class="align-left"><?=$member->nickname ;?></td>
-                <td class="align-center"><?php if($member->lastLogin) echo date('Y.m.d H:i:s',$member->lastLogin);?></td>
+                <td class="align-center"><?=date('Y.m.d H:i:s',$member->lastLogin);?></td>
                 <td class="align-center"><?=$member->loginIp ;?></td>
                 <td class="align-center"><?=date('Y.m.d H:i:s',$member->registerTime);?></td>
                 <td style="text-align:center;">
@@ -47,14 +43,13 @@
         <?php endif;?>
         </tbody>
     </table>
-<div class="page-bar">
-    <div class="pagination">
-        <?=$this->tag->linkTo("member/search", "首页") ;?>
-        <?=$this->tag->linkTo("member/search?page=".$page->before,"上一页");?>
-        <span>
-            <?php echo $page->current,"/",$page->total_pages;?>
-        </span>
-        <?=$this->tag->linkTo("member/search?page=".$page->next, "下一页") ;?>
-        <?=$this->tag->linkTo("member/search?page=".$page->last, "尾页") ;?>
-    </div>
+
+<div class="pagination">
+    <?=$this->tags->link_to("member/search", "首页") ;?>
+    <?=$this->tags->link_to("member/search?page=".$page->before,"上一页");?>
+    <span>
+        <?php echo $page->current,"/",$page->total_pages;?>
+    </span>
+    <?=$this->tags->link_to("member/search?page=".$page->next, "下一页") ;?>
+    <?=$this->tags->link_to("member/search?page=".$page->last, "尾页") ;?>
 </div>
