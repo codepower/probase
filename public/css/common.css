@@ -1,4 +1,4 @@
-a:active,
+Skip to content This repository Search Pull requests Issues Marketplace Explore @codetown Sign out 1 1 0 codepower/probase Code Issues 0 Pull requests 0 Projects 0 Wiki Insights Settings probase/public/css/common.css 6d45620 16 hours ago @codetown codetown Import devtools. 1068 lines (907 sloc) 17.3 KB a:active,
 a:hover,
 a:-webkit-any-link {
     outline: 0;
@@ -321,6 +321,39 @@ a.menu-item i.iconfont {
     color: #fff;
     background-color: #cceeff;
     border: 1px solid #aaeeff;
+}
+
+.bread a {
+    display: inline-block;
+    color: #fff;
+}
+
+.bread a:hover {
+    display: inline-block;
+    color: #00aaff;
+}
+
+.bread em {
+    display: inline-block;
+    padding: 0 0.5em;
+    font-style: normal;
+}
+
+.bread .button-group {
+    float: right;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    line-height: normal;
+    margin-top: 2px;
+}
+
+.bread .button-group a {
+    display: inline-block;
+    padding: .4em 1em;
+}
+
+.bread .button-group a:first-child {
+    border-right: 1px solid #fff;
 }
 
 #footer {
@@ -739,7 +772,14 @@ a.delete {
     color: hotpink;
 }
 
-img.square-thumb-small {
+.square-thumb-small {
+    font-size: 0;
+    text-align: center;
+    width: 80px;
+    overflow: hidden;
+}
+
+.square-thumb-small img {
     width: 64px;
     height: 64px;
     border: 1px solid #eee;
@@ -775,17 +815,18 @@ img.golden-thumb {
     padding: 3px;
 }
 
+.page-bar {
+    padding-top: 10px;
+    text-align: right;
+}
+
 .pagination {
     display: inline-block;
-    /*border-left: 1px solid #f2f2f2;
-    border-top: 1px solid #f2f2f2;
-    border-bottom: 1px solid #dedede;
-    border-top: 1px solid #dedede;*/
-    position: relative;
     border-radius: 2px;
     overflow: hidden;
     vertical-align: middle;
-    margin-top: 10px;
+    font-size: 0;
+    -webkit-text-size-adjust: none;
 }
 
 .pagination a,
