@@ -1,52 +1,52 @@
 <div class="bread">
-<a href="">会员管理</a>
-<em>&#47;</em>
-<span>会员中心</span>
-<div class="button-group"><a href="/member/new">新建</a><a href="/member/index">返回</a></div>
+    <a href="">会员管理</a>
+    <em>&#47;</em>
+    <span>会员中心</span>
+    <div class="button-group"><a href="/member/new">新建</a><a href="/member/index">返回</a></div>
 </div>
 <div class="page-header">
-        <form method="get">
-            关键字：<input type="text" name="keywords"/>
-            <button type="submit" class="button primary">查询</button>
-        </form>
+    <form method="get">
+        关键字：<input type="text" name="keywords" value="<?php echo $this->request->getQuery('keywords','string');?>"/>
+        <button type="submit" class="button primary">查询</button>
+    </form>
 </div>
-    <table class="bordered no-padding">
-        <thead>
-            <tr>
-                <th>编号</th>
-                <th>手机</th>
-                <th>邮箱</th>
-                <th>头像</th>
-                <th>昵称</th>
-                <th>最近登录</th>
-                <th>登录IP</th>
-                <th>注册时间</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php if($page->items):?>
-        <?php foreach($page->items as $member):?>
-            <tr>
-                <td class="align-right"><?=$member->memberId;?></td>
-                <td class="align-center"><?=$member->mobile;?></td>
-                <td class="align-left"><?=$member->email ;?></td>
-                <td class="square-thumb-small">
-                    <img src="/upload/avatar.jpg" />
-                </td>
-                <td class="align-left"><?=$member->nickname ;?></td>
-                <td class="align-center"><?php if($member->lastLogin) echo date('Y.m.d H:i:s',$member->lastLogin);?></td>
-                <td class="align-center"><?=$member->loginIp ;?></td>
-                <td class="align-center"><?=date('Y.m.d H:i:s',$member->registerTime);?></td>
-                <td style="text-align:center;">
-                    <a href="/member/edit/<?=$member->memberId?>" class="small-button edit">编辑</a>
-                    <a href="/member/delete/<?=$member->memberId?>" class="small-button delete">删除</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-        <?php endif;?>
-        </tbody>
-    </table>
+<table class="bordered no-padding">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>手机</th>
+            <th>邮箱</th>
+            <th>头像</th>
+            <th>昵称</th>
+            <th>最近登录</th>
+            <th>登录IP</th>
+            <th>注册时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if($page->items):?>
+    <?php foreach($page->items as $member):?>
+        <tr>
+            <td class="align-right"><?=$member->memberId;?></td>
+            <td class="align-center"><?=$member->mobile;?></td>
+            <td class="align-left"><?=$member->email ;?></td>
+            <td class="square-thumb-small">
+                <img src="/upload/avatar.jpg" />
+            </td>
+            <td class="align-left"><?=$member->nickname ;?></td>
+            <td class="align-center"><?php if($member->lastLogin) echo date('Y.m.d H:i:s',$member->lastLogin);?></td>
+            <td class="align-center"><?=$member->loginIp ;?></td>
+            <td class="align-center"><?=date('Y.m.d H:i:s',$member->registerTime);?></td>
+            <td style="text-align:center;">
+                <a href="/member/edit/<?=$member->memberId?>" class="small-button edit">编辑</a>
+                <a href="/member/delete/<?=$member->memberId?>" class="small-button delete">删除</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    <?php endif;?>
+    </tbody>
+</table>
 <div class="page-bar">
     <div class="pagination">
         <?=$this->tag->linkTo("member/search", "首页") ;?>

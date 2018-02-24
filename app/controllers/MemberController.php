@@ -1,22 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @codetown
- Sign out
-1
-1 0 codepower/probase
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-probase/app/controllers/MemberController.php
-6d45620  16 hours ago
-@codetown codetown Import devtools.
-      
-262 lines (210 sloc)  7.59 KB
 <?php
- 
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 class MemberController extends ControllerBase
@@ -67,7 +49,7 @@ class MemberController extends ControllerBase
      */
     public function newAction()
     {
-$this->view->menuList=[['menuName'=>'文章管理'],['menuName'=>'用户管理'],['menuName'=>'广告管理'],['menuName'=>'系统管理']];
+        $this->view->menuList=[['menuName'=>'文章管理'],['menuName'=>'用户管理'],['menuName'=>'广告管理'],['menuName'=>'系统管理']];
     }
     /**
      * Edits a member
