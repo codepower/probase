@@ -7,7 +7,7 @@
 <form action="/member/create" method="post" autocomplete="off" class="aligned">
 
     <div class="form-group">
-        <label for="fieldMobile" class="control-label">Mobile</label>
+        <label for="fieldMobile" class="control-label">手机号</label>
         <div>
             <?php 
             echo $this->tag->textField(["mobile","size"=>30,"class"=>"form-control","id"=>"fieldMobile"]);
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group">
-        <label for="fieldEmail" class="control-label">Email</label>
+        <label for="fieldEmail" class="control-label">邮箱</label>
         <div>
             <?php 
             echo $this->tag->textField(["email","size"=>30,"class"=>"form-control","id"=>"fieldEmail"]);
@@ -25,35 +25,36 @@
     </div>
 
     <div class="form-group">
-        <label for="fieldAvatar" class="control-label">Avatar</label>
-        <div>
-            <input type="file" name="avatar"/>
+        <label for="fieldAvatar" class="control-label">头像上传</label>
+        <div class="upload-area">
+            <img src="/upload/avatar.jpg" alt=""/>
+            <input type="file" name="avatar" size="30"/>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="fieldNickname" class="control-label">Nickname</label>
+        <label for="fieldNickname" class="control-label">昵称</label>
         <div>
             <?php 
-            echo $this->tag->textField(["nickname","size"=>30,"class"=>"input form-control","id"=>"fieldNickname"]);
+            echo $this->tag->textField(["nickname","size"=>30,"class"=>"input form-control"]);
             ?>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="fieldLoginip" class="control-label">LoginIp</label>
+        <label for="fieldLoginip" class="control-label">密码</label>
         <div>
             <?php 
-            echo $this->tag->textField(["loginIp","size"=>30,"class"=>"form-control","id"=>"fieldLoginip"]);
+            echo $this->tag->textField(["password","size"=>30,"class"=>"form-control"]);
             ?>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="fieldRegistertime" class="control-label">RegisterTime</label>
+        <label for="fieldRegistertime" class="control-label">重复密码</label>
         <div>
             <?php
-            echo $this->tag->textField(["registerTime","size"=>30,"type"=>"numeric","class"=>"form-control","id"=>"fieldRegistertime"]);
+            echo $this->tag->textField(["confirm","size"=>30,"type"=>"password","class"=>"form-control"]);
             ?>
         </div>
     </div>
