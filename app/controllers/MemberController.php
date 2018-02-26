@@ -101,14 +101,14 @@ class MemberController extends ControllerBase
         $member->mobile = $this->request->getPost("mobile");
         $member->email = $this->request->getPost("email", "email");
         $member->password = $this->request->getPost("password");
-        $member->encrypt = $this->request->getPost("encrypt");
-        $member->avatar = $this->request->getPost("avatar");
+        $member->encrypt ='xxx';
+        $member->avatar ='';
         $member->nickname = $this->request->getPost("nickname");
-        $member->qqToken = $this->request->getPost("qqToken");
-        $member->wxToken = $this->request->getPost("wxToken");
+        $member->qqToken ='';
+        $member->wxToken ='';
         $member->lastLogin = $this->request->getPost("lastLogin");
         $member->loginIp = $this->request->getPost("loginIp");
-        $member->registerTime = $this->request->getPost("registerTime");
+        $member->registerTime = time();
         
         if (!$member->save()) {
             foreach ($member->getMessages() as $message) {

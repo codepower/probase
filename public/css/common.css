@@ -273,7 +273,7 @@ legend {
 
 .menu-search {
     text-align: center;
-    padding-top: 12px;
+    padding-top: 10px;
 }
 
 .menu-search input {
@@ -436,10 +436,10 @@ ul.menu-list li ul li a.hover {
 
 .page-header {
     background-color: #fff;
-    line-height: 2.5em;
-    height: 2.5rem;
+    line-height: 36px;
+    height: 36px;
     color: #666;
-    padding: 0 0.5em;
+    padding: 0 1em;
     border-radius: 4px;
     margin-bottom: 10px;
     border: 1px solid #eee;
@@ -1047,7 +1047,7 @@ form.aligned .controls {
 }
 
 .form-group {
-    margin-bottom: 1em;
+    padding: 0 1em 1em 1em;
 }
 
 .form-group button {
