@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对话框样式</title>
+	<style type="text/css">
+
+		.mask{
+			background-color:#444;
+			opacity: 0.8;
+			filter:alpha(opacity=80);
+			-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+			position:fixed;top:0;left:0;right:0;bottom:0;
+		}
+		
+		.modal{
+			border: 1px solid #ccc;
+		    position: fixed;
+		    left: 50%;
+		    top: 50%;
+		    width: 24%;
+		    margin-top: -12%;
+		    margin-left: -12%;
+		    background-color: #fff;
+		    border-radius: 6px;
+		    overflow: hidden;
+		    box-shadow: 1px 1px 10px #000;
+		    font-family:"Microsoft Yahei";
+		}
+
+		.modal-header{
+			padding:0 8px;
+			height:40px;
+			line-height:40px;
+			overflow:hidden;
+			background-color:#fafafa;
+			border-bottom:1px solid #e6e6e6;
+		}
+
+		.modal-body{
+			text-align:center;
+			vertical-align:middle;
+			padding:1.6em;
+			line-height:1.6em;color:#666;
+		}
+
+		.modal-footer{
+			text-align:right;
+			padding:16px 8px;
+		}
+
+		.modal-footer button{
+			cursor:pointer;
+			font-family:"Microsoft Yahei";
+			font-size:14px;
+			margin-right:16px;
+			height:34px;
+			background:url("mbtnbg.gif") repeat-x;
+			padding:0 1.6em;
+			border:1px solid #ddd;
+			border-radius:6px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="mask"></div>
+	<div class="modal">
+		<div class="modal-header">提示/警告/错误</div>
+		<div class="modal-body">确定要执行该任务么?</div>
+		<div class="modal-footer">
+			<button>确认</button><button>关闭</button>
+		</div>
+	</div>
+</body>
+</html>
