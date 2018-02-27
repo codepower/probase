@@ -1100,3 +1100,66 @@ form.message {
 
 
 /*************后台管理表单样式 结束*************/
+
+#mask {
+    background-color: #444;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+#modal {
+    border: 1px solid #ccc;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 24%;
+    min-height: 500px;
+    width: 500px;
+    margin-top: -300px;
+    margin-left: -250px;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px #000;
+    font-family: "Microsoft Yahei";
+    display: none;
+}
+
+.modal-header {
+    padding: 0 8px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.modal-body {
+    text-align: center;
+    vertical-align: middle;
+    color: #666;
+}
+
+.modal-footer {
+    text-align: right;
+    padding: 8px;
+}
+
+.modal-footer button {
+    cursor: pointer;
+    font-family: "Microsoft Yahei";
+    font-size: 14px;
+    margin-left: 8px;
+    height: 34px;
+    background: url("mbtnbg.gif") repeat-x;
+    padding: 0 1.6em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}

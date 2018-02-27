@@ -32,7 +32,8 @@
         <label for="fieldAvatar" class="control-label">头像上传</label>
         <div class="upload-area">
             <img src="/img/presel.png" alt="" id="preview"/>
-            <input type="file" name="avatar" size="30" id="upctrl"/>
+            <input type="file" name="upctrl" id="upctrl" onchange="uploadImg(this)"/>
+            <input type="hidden" name="avatar">
         </div>
     </div>
 
