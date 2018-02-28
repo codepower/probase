@@ -73,8 +73,18 @@ class FileController extends \Phalcon\Mvc\Controller
     }
 
     //数据导出成excel文件
-    public function excelAction(){
+    public function ExcelAction(){
 
     }
+
+    //生成qrcode
+    public function QrcodeAction(){
+
+    }
+
+    //生成图片验证码
+    public function CaptchaAction(){
+        
+    } 
 }
 
