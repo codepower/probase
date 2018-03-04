@@ -36,8 +36,8 @@ function uploadImg() {
                 alert(result.message);
             } else {
                 console.dir(result);
-                var html = '<img id="jcrop" style="width:500px;height:500px;display:block" src="' + uploadUrl + result.data.filename + '">' +
-                    '<input type="hidden" id="avatar" name="avatar" value="' + result.data.filename + '">';
+                $("#avatar").val(result.data.filename);
+                var html = '<img id="jcrop" style="width:500px;height:500px;display:block" src="' + uploadUrl + result.data.filename + '">';
                 $("#modal").find(".modal-body").html(html);
                 $("#mask").show();
                 $("#modal").show();
@@ -67,8 +67,12 @@ function uploadImg() {
 }
 /*裁剪图片*/
 $(".modal-footer").find(".save").click(function() {
-    $.post(cutApi, { 'path': $("#img-url").val(), 'x': x, 'y': y, 'w': w, 'h': h }, function(data) {
-        $("#img-thumb").attr('src', uploadUrl + data.data);
-        $("#hid-thumb").val(data.data);
+    $.post(cutApi, { 'path':$("#avatar").val(), 'x': x, 'y': y, 'w': w, 'h': h }, function(result) {
+        if(result.code==200){
+            $("#preview").attr('src', uploadUrl + result.data);
+            //$("#avatar").val(data.data);
+        }else{
+            alert($result.message);
+        }
     }, "json");
 });

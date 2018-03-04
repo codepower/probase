@@ -45,7 +45,7 @@ class FileController extends \Phalcon\Mvc\Controller
                 $result['data']['errorcode']=$file->getError();
                 $result['data']['ctrlname']=$file->getKey();
                 $result['data']['extension']=$file->getExtension();
-                $result['data']['savepath']=UPLOAD_PATH.$file->getName();
+                //$result['data']['savepath']=$file->getName();
                 // 移动到指定目录
                 $file->moveTo(UPLOAD_PATH.$file->getName());
             }
@@ -59,7 +59,15 @@ class FileController extends \Phalcon\Mvc\Controller
 
     //图片裁切
     public function CutAction(){
-
+        $postData=$this->request->getPost();
+        $result=[
+            'code'=>500,
+            'message'=>'失败',
+            'data'=>[]
+        ];
+        $result['code']=200;
+        $result['data']=$postData['path'];
+        return json_encode($result);
     }
 
     //图片压缩
