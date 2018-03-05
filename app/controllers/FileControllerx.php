@@ -57,28 +57,9 @@ class FileController extends \Phalcon\Mvc\Controller
         return json_encode($result);
     }
 
-     //图片裁切
+    //图片裁切
     public function CutAction(){
-        $result=[
-            'code'=>500,
-            'message'=>'失败',
-            'data'=>[]
-        ];
-        $postData=$this->request->getPost();
-        if(!empty($postData['path'])){
-            $result['code']=200;
-            $source = imagecreatefromjpeg(UPLOAD_PATH.$postData['path']);
-            $target = imagecreatetruecolor($postData['w'],$postData['h']);
-            imagecopyresampled($target,$source,0,0,0,0,$postData['w'],$postData['h'],$postData['x'],$postData['y']);
-            $nowString=date('Ymd');
-            $randNum=mt_rand(1000,9999);
-            $imgName=$nowString.$randNum.'.jpg';
-            imagejpeg($target, UPLOAD_PATH.$imgName);
-            //imagedestroy($target);
-            //imagedestroy($source);
-            $result['data']['imgname']=$imgName;
-        }
-        return json_encode($result);
+        return json_encode($this->request->getPost());
     }
 
     //图片压缩

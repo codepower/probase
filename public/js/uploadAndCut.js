@@ -67,11 +67,11 @@ function uploadImg() {
 }
 /*裁剪图片*/
 $(".modal-footer").find(".save").click(function() {
-    $.post(cutApi, { 'path':$("#avatar").val(), 'x': x, 'y': y, 'w': w, 'h': h }, function(result) {
-        if(result.code==200){
-            $("#preview").attr('src', uploadUrl + result.data);
+    $.post(cutApi, { 'path': $("#avatar").val(), 'x': x, 'y': y, 'w': w, 'h': h }, function(result) {
+        if (result.code == 200) {
+            $("#preview").attr('src', uploadUrl + result.data.imgname);
             //$("#avatar").val(data.data);
-        }else{
+        } else {
             alert($result.message);
         }
     }, "json");

@@ -20,7 +20,8 @@
             <div class="menu-search">
                 <input type="text" class="input-text input-text-small">
             </div>
-            <?php $menuList=[['menuName'=>'文章管理'],['menuName'=>'用户管理'],['menuName'=>'广告管理'],['menuName'=>'系统管理']];foreach($menuList as $menu):?>
+            <?php $menuList=[['menuName'=>'文章管理'],['menuName'=>'用户管理'],['menuName'=>'广告管理'],['menuName'=>'系统管理']];?>
+            <?php foreach($menuList as $menu):?>
             <a class="menu-item menu-item-active">
                 <i class="iconfont">&#x3435;</i>
                 <?php echo $menu['menuName'];?>
