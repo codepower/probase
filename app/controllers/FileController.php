@@ -67,15 +67,30 @@ class FileController extends \Phalcon\Mvc\Controller
         $postData=$this->request->getPost();
         if(!empty($postData['path'])){
             $result['code']=200;
-            $source = imagecreatefromjpeg(UPLOAD_PATH.$postData['path']);
+            $filePath=realpath(UPLOAD_PATH.$postData['path']);
+            $source = imagecreatefromjpeg($filePath);
+            //获取图片大小
+            $srcWidth=0;
+            $srcHeight=0;
+            list($srcWidth,$srcHeight) = getimagesize($filePath);
+            $ratio=$srcWidth/$srcHeight;
+            $resizeWidth=500;
+            $resizeHeight=500;
+            if($ratio>1){
+                $resizeHeight=$resizeWidth*$ratio;
+            }else{
+                $resizeWidth=$resizeHeight/$ratio;
+            }
+            $result['data']['resizeWidth']=$resizeWidth;
+            $result['data']['resizeHeight']=$resizeHeight;
             $target = imagecreatetruecolor($postData['w'],$postData['h']);
-            imagecopyresampled($target,$source,0,0,0,0,$postData['w'],$postData['h'],$postData['x'],$postData['y']);
+            imagecopyresampled($target,$source,0,0,$postData['x'],$postData['y'],$postData['w'],$postData['h'],$resizeWidth,$resizeHeight);
             $nowString=date('Ymd');
             $randNum=mt_rand(1000,9999);
             $imgName=$nowString.$randNum.'.jpg';
             imagejpeg($target, UPLOAD_PATH.$imgName);
-            //imagedestroy($target);
-            //imagedestroy($source);
+            imagedestroy($target);
+            imagedestroy($source);
             $result['data']['imgname']=$imgName;
         }
         return json_encode($result);
