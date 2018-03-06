@@ -1151,9 +1151,11 @@ form.message {
     font-size: 0;
     line-height: 0;
     max-height: 800px;
-    overflow-y: scroll;
+    overflow:auto;
 }
-
+.modal-body p>div{
+    overflow: hidden;
+}
 .modal-footer {
     text-align: right;
     padding: 8px;

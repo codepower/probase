@@ -35,29 +35,32 @@ function uploadImg() {
             if (result.code != 200) {
                 alert(result.message);
             } else {
-                console.dir(result);
-                $("#avatar").val(result.data.filename);
-                var html = '<img id="jcrop" style="width:' + result.data.width + 'px;height:' + result.data.height + 'px;display:block" src="' + uploadUrl + result.data.filename + '">';
-                $("#modal").css("margin-top", 0 - result.data.height / 2 - 44);
-                $("#modal").find(".modal-body>p").html(html);
-                $("#mask").show();
-                $("#modal").show();
-                x = y = w = h = 0;
-                var cutWidth = Math.ceil($("#modal").width() / 2);
-                var cutHeight = Math.ceil(cutWidth / 2 / ar);
-                $(".modal-body>p>img").Jcrop({
-                    bgOpacity: 0.4,
-                    aspectRatio: ar,
-                    setSelect: [0, 0, cutWidth, cutHeight],
-                    onSelect: function(c) {
-                        x = c.x;
-                        y = c.y;
-                        w = c.w;
-                        h = c.h;
-                    }
-                }, function() {
-                    jcropApi = this;
-                });
+                if(result.data.width==result.data.height){
+                    $("#preview").attr('src', uploadUrl + result.data.filename);
+                }else{
+                    $("#avatar").val(result.data.filename);
+                    var html = '<img id="jcrop" style="width:' + result.data.width + 'px;height:' + result.data.height + 'px;display:block" src="' + uploadUrl + result.data.filename + '">';
+                    $("#modal").css("margin-top", 0 - result.data.height / 2 - 44);
+                    $("#modal").find(".modal-body>p").html(html);
+                    $("#mask").show();
+                    $("#modal").show();
+                    x = y = w = h = 0;
+                    var cutWidth = Math.ceil($("#modal").width() / 2);
+                    var cutHeight = Math.ceil(cutWidth / 2 / ar);
+                    $(".modal-body>p>img").Jcrop({
+                        bgOpacity: 0.4,
+                        aspectRatio: ar,
+                        setSelect: [0, 0, cutWidth, cutHeight],
+                        onSelect: function(c) {
+                            x = c.x;
+                            y = c.y;
+                            w = c.w;
+                            h = c.h;
+                        }
+                    }, function() {
+                        jcropApi = this;
+                    });
+                }
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

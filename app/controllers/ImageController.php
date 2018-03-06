@@ -95,6 +95,8 @@ class ImageController extends \Phalcon\Mvc\Controller
             $randNum=mt_rand(1000,9999);
             $imgName=$nowString.$randNum.'.jpg';
             imagejpeg($target, UPLOAD_PATH.$imgName);
+            //删除临时原文件
+            unlink($filePath);
             imagedestroy($target);
             imagedestroy($source);
             $this->result['data']['imgname']=$imgName;
