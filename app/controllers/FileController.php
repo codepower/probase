@@ -8,6 +8,9 @@ class FileController extends \Phalcon\Mvc\Controller
         echo "Hello World";
     }
 
+    //上传并缩放长或宽最大500;
+    //是正方行图片就直接缩放至500X500并预览
+    //否则将宽度限制在500,由用户自己裁剪
     public function uploadAction(){
         $result=[
             'code'=>500,
@@ -48,6 +51,7 @@ class FileController extends \Phalcon\Mvc\Controller
                 $result['data']['savepath']=UPLOAD_PATH.$file->getName();
                 // 移动到指定目录
                 $file->moveTo(UPLOAD_PATH.$file->getName());
+                echo $file->_name;exit;
             }
         }
         if(count($result['data'])){
@@ -70,8 +74,8 @@ class FileController extends \Phalcon\Mvc\Controller
             $filePath=realpath(UPLOAD_PATH.$postData['path']);
             $source = imagecreatefromjpeg($filePath);
             //获取图片大小
-            $srcWidth=0;
-            $srcHeight=0;
+            $srcWidth=1;
+            $srcHeight=1;
             list($srcWidth,$srcHeight) = getimagesize($filePath);
             $ratio=$srcWidth/$srcHeight;
             $resizeWidth=500;

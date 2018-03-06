@@ -5,8 +5,8 @@
 
 var appUrl = "/";
 var uploadUrl = appUrl + "upload/";
-var uploadApi = appUrl + "file/upload";
-var cutApi = appUrl + "file/cut";
+var uploadApi = appUrl + "image/upload";
+var cutApi = appUrl + "image/cut";
 var x = 0,
     y = 0,
     w = 0,
@@ -37,14 +37,15 @@ function uploadImg() {
             } else {
                 console.dir(result);
                 $("#avatar").val(result.data.filename);
-                var html = '<img id="jcrop" style="width:500px;height:500px;display:block" src="' + uploadUrl + result.data.filename + '">';
-                $("#modal").find(".modal-body").html(html);
+                var html = '<img id="jcrop" style="width:' + result.data.width + 'px;height:' + result.data.height + 'px;display:block" src="' + uploadUrl + result.data.filename + '">';
+                $("#modal").css("margin-top", 0 - result.data.height / 2 - 44);
+                $("#modal").find(".modal-body>p").html(html);
                 $("#mask").show();
                 $("#modal").show();
                 x = y = w = h = 0;
                 var cutWidth = Math.ceil($("#modal").width() / 2);
                 var cutHeight = Math.ceil(cutWidth / 2 / ar);
-                $(".modal-body").Jcrop({
+                $(".modal-body>p>img").Jcrop({
                     bgOpacity: 0.4,
                     aspectRatio: ar,
                     setSelect: [0, 0, cutWidth, cutHeight],
