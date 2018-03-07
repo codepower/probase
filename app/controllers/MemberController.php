@@ -124,7 +124,7 @@ class MemberController extends ControllerBase
         $this->flash->success("member was created successfully");
         $this->dispatcher->forward([
             'controller' => "member",
-            'action' => 'index'
+            'action' => 'search'
         ]);
     }
     /**
