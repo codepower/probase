@@ -97,12 +97,13 @@ class MemberController extends ControllerBase
             ]);
             return;
         }
+        $postData=$this->request->getPost();
         $member = new Member();
         $member->mobile = $this->request->getPost("mobile");
         $member->email = $this->request->getPost("email", "email");
-        $member->password = $this->request->getPost("password");
-        $member->encrypt ='xxx';
-        $member->avatar ='';
+        $member->encrypt =Utils::createRandomStr(8);
+        $member->password = Utils::encodePassword($this->request->getPost("password"),$member->encrypt);
+        $member->avatar =$this->request->getPost("avatar");
         $member->nickname = $this->request->getPost("nickname");
         $member->qqToken ='';
         $member->wxToken ='';

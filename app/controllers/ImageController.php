@@ -19,7 +19,7 @@ class ImageController extends \Phalcon\Mvc\Controller
     //是正方行图片就直接缩放至500X500并预览
     //否则将宽度限制在500,由用户自己裁剪
     public function uploadAction(){
-        $acceptType=["png"=>"image/png","jpg"=>"image/jpeg"];
+        $acceptType=["png"=>"image/png","jpg"=>"image/jpeg","jpeg"=>"image/jpeg"];
         if ($this->request->hasFiles()) {
                 $file=$this->request->getUploadedFiles();
                 $file=$file[0];
@@ -64,10 +64,8 @@ class ImageController extends \Phalcon\Mvc\Controller
                 // 移动到指定目录
                 //$file->moveTo($this->result['data']['savepath']);
         }
-        if(count($this->result['data'])>0){
-                $this->result['code']=200;
-                $this->result['message']='成功';
-        }
+        $this->result['code']=200;
+        $this->result['message']='上传成功';
         return json_encode($this->result);
     }
 

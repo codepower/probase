@@ -11,3 +11,9 @@ $loader->registerDirs(
         $config->application->modelsDir
     ]
 )->register();
+
+$loader->registerClasses(
+    [
+        "Utils"         => APP_PATH."/library/Utils.php",
+    ]
+);

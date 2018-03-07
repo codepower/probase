@@ -35,12 +35,13 @@ function uploadImg() {
             if (result.code != 200) {
                 alert(result.message);
             } else {
-                if(result.data.width==result.data.height){
+                if (result.data.width == result.data.height) {
                     $("#preview").attr('src', uploadUrl + result.data.filename);
-                }else{
+                } else {
                     $("#avatar").val(result.data.filename);
                     var html = '<img id="jcrop" style="width:' + result.data.width + 'px;height:' + result.data.height + 'px;display:block" src="' + uploadUrl + result.data.filename + '">';
-                    $("#modal").css("margin-top", 0 - result.data.height / 2 - 44);
+                    var modalTop = result.data.height >= 800 ? -444 : (0 - result.data.height / 2 - 44);
+                    $("#modal").css("margin-top", modalTop);
                     $("#modal").find(".modal-body>p").html(html);
                     $("#mask").show();
                     $("#modal").show();
@@ -74,9 +75,17 @@ $(".modal-footer").find(".save").click(function() {
     $.post(cutApi, { 'path': $("#avatar").val(), 'x': x, 'y': y, 'w': w, 'h': h }, function(result) {
         if (result.code == 200) {
             $("#preview").attr('src', uploadUrl + result.data.imgname);
-            //$("#avatar").val(data.data);
+            $("#avatar").val(uploadUrl + result.data.imgname);
+            $("#mask").hide();
+            $("#modal").find(".modal-body>p").html('');
+            $("#modal").hide();
         } else {
-            alert($result.message);
+            alert(result.message);
         }
     }, "json");
+});
+$(".modal-footer").find(".close").click(function() {
+    $("#mask").hide();
+    $("#modal").find(".modal-body>p").html('');
+    $("#modal").hide();
 });
