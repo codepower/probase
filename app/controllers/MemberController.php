@@ -29,8 +29,7 @@ class MemberController extends ControllerBase
         $parameters["order"] = "memberId";
         $member = Member::find($parameters);
         if (count($member) == 0) {
-            $this->flash->notice("The search did not find any member");
-            $this->dispatcher->forward([
+             $this->dispatcher->forward([
                 "controller" => "Member",
                 "action" => "index"
             ]);
@@ -93,7 +92,7 @@ class MemberController extends ControllerBase
         if (!$this->request->isPost()) {
             $this->dispatcher->forward([
                 'controller' => "member",
-                'action' => 'index'
+                'action' => 'search'
             ]);
             return;
         }
@@ -122,6 +121,7 @@ class MemberController extends ControllerBase
             return;
         }
         $this->flash->success("member was created successfully");
+        exit;
         $this->dispatcher->forward([
             'controller' => "member",
             'action' => 'search'

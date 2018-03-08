@@ -32,7 +32,7 @@
             <td class="align-center"><?=$member->mobile;?></td>
             <td class="align-left"><?=$member->email ;?></td>
             <td class="square-thumb-small">
-                <img src="/upload/avatar.jpg" />
+                <img src="<?=$member->avatar?$member->avatar:'/img/avatar.png';?>"  onerror="this.src='/img/avatar.png';"/>
             </td>
             <td class="align-left"><?=$member->nickname ;?></td>
             <td class="align-center"><?php if($member->lastLogin) echo date('Y.m.d H:i:s',$member->lastLogin);?></td>
