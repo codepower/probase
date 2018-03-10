@@ -160,11 +160,8 @@ input[type=submit] {
     cursor: pointer
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    box-shadow: 0 0 0 60px #eee inset;
-    -webkit-text-fill-color: #878787;
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 button[disabled],
