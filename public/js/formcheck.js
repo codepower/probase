@@ -16,7 +16,7 @@ function check(infoData) {
             break;
             return false;
         }
-        if (row.hasOwnProperty("string") && (row.input < row.string.min || row.input > row.string.max)) {
+        if (row.hasOwnProperty("string") && (row.input.length < row.string.min || row.input.length > row.string.max)) {
             alert(row.label + '的字符长度只能在' + row.string.min + '-' + row.string.max + '之间');
             break;
             return false;
