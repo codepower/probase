@@ -62,9 +62,53 @@ class Utils{
         $words=md5($salt.md5($words));
         return $words;
     }
-
-    //验证字段
-    static public function verify(){
-
+    //手机号校验
+    static public function checkMobile($mobile){
+        $preg='/^1[34578]\d{9}$/';
+        return $mobile&&strlen($mobile)>0&&preg_match($preg,$mobile);
     }
+
+    //邮箱验证
+    static public function checkEmail($email){
+        $preg = '/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+/';
+        return $email&&strlen($email)>0&&preg_match($preg,$email);
+    }
+    //验证字段
+    static public function verifyField($formData){
+        $msgList = [];
+        foreach ($formData as $key => $row) {
+            //必填判断
+            if ($row['require']&&empty($row['input'])) {
+                $msgList[]='请填写'.$row['label'];
+            }
+    
+            //整数值范围判断
+            if ($row['integer']&&($row['input'] < $row['integer']['min'] || $row['input']> $row['integer']['max'])) {
+                $msgList[]=$row['label'].'只能输入'.$row['integer']['min'].'-'.$row['integer']['max'].'之间的整数';
+            }
+    
+            //小数值范围判断
+            if ($row['decimal']&& ($row['input']< $row['decimal']['min'] || $row['input'] > $row['decimal']['max'])) {
+                $msgList[]=$row['label'].'只能输入'.$row['decimal']['min'].'-'.$row['decimal']['max'].'之间的整数';
+            }
+    
+            $inputLength=strlen($row['input']);
+            //字符长短判断
+            if ($row['string'] && ($inputLength< $row['string']['min'] || $inputLength> $row['string']['max'])) {
+                $msgList[]=$row['label'].'的字符长度只能在'.$row['string']['min'].'-'.$row['string']['max'].'之间';
+            }
+    
+            //邮箱格式判断
+            if (!self::checkEmail($row['input'])) {
+                $msgList[]=$row['label'].'必须是邮箱格式，请填写正确的邮箱格式';
+            }
+    
+            //手机号格式判断
+            if (!self::checkMobile($row['input'])) {
+                $msgList[]=$row['label'].'必须是手机号格式，请填写正确的手机号格式';
+            }
+        }
+        return $msgList;
+    }
+
 }
