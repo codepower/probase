@@ -1,6 +1,4 @@
- 
- 
- <?php
+<?php
 header("Content-Type:text/html;charset=utf8");
 require_once('mysqlidb.php');
 const SHOW_TABLE_STATUS="SHOW TABLE STATUS";
@@ -55,14 +53,16 @@ foreach ($tableList as $table) {
                     if($item){
                         if(strpos($field['ctype'],'unsigned')!==false){
                             $max=pow(10,$item)-1;
+                            //$max=pow(2,32)-1
                             $min=0;
                         }else{
                             $max=pow(10,$item-1)-1;
+                            //$max=pow(2,31)-1
                             $min=0-$max;
                         }
                         fwrite($file,",\r\n\t\t\t'interger'=>[$min,$max]");
-                        break;
                     }
+                    break;
                 }
                 case 'declen':{
                     if($item){
@@ -85,4 +85,17 @@ foreach ($tableList as $table) {
     }
     fwrite($file,"\r\n\t\t];\r\n\t}\r\n}");
 }
-echo '创建成功';
+?>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建校验</title>
+</head>
+<body>
+    <?php echo '创建成功';?>
+    <script type="text/javascript" src="formcheck.js"></script>
+</body>
+</html>
